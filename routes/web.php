@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\PinResetController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DashboardController;
