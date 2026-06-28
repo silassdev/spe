@@ -1,66 +1,299 @@
-# Hausify (EPM-S) ─ Enterprise Property Management Suite MVP
+# 🚀 CryptoCore
 
-[![System Integrity](https://img.shields.io/badge/System_Status-Active-emerald?style=flat-square&logo=git)](/)
-[![Framework](https://img.shields.io/badge/Framework-Laravel_11-orange?style=flat-square&logo=laravel)](https://laravel.com)
-[![Front-end Pipeline](https://img.shields.io/badge/Pipeline-Vite_+_Tailwind_v3-blue?style=flat-square&logo=vite)](/)
-[![Stack Style](https://img.shields.io/badge/Design-Technical_Grid-slate?style=flat-square)](/)
+> **A secure, modern cryptocurrency investment and membership management platform built with Laravel and MySQL.**
 
-Hausify (**EPM-S**) is a highly-structured, production-ready Enterprise Property Management Suite MVP tailored specifically for the Nigerian and wider Sub-Saharan African real estate markets. Designed to eliminate the operational chaos of fragmented records, manual rent tracking, and scattered receipts, Hausify automates landlord-tenant lifecycles in a high-performance **Technical Grid** layout.
+<p align="center">
 
----
+![Laravel](https://img.shields.io/badge/Laravel-12-red?style=for-the-badge)
+![PHP](https://img.shields.io/badge/PHP-8.3-blue?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=for-the-badge)
+![Security](https://img.shields.io/badge/Security-High-success?style=for-the-badge)
+![License](https://img.shields.io/badge/Status-Development-purple?style=for-the-badge)
 
-## Target Segments & Tailored Use Cases
-
-Hausify is engineered to support multiple verticals, adapting its units and billing frameworks to fit local property archetypes:
-
-### 1. Landlords & Residential Estates
-*   **Residential & Commercial Complexes**: Manage multi-flat layouts, shops, and office plazas.
-*   **Service Charge Administration**: Automate diesel power levies, security fees, and waste disposal bills.
-*   **Localized Tenant Onboarding**: Digitally log tenancy application forms, guarantor records, and official KYC (e.g., NIN, BVN validation hints).
-
-### 2. Private & Academic Hostels
-*   **Bed Space Allocations**: Model rooms into discrete bed spaces (e.g., Bed A, Bed B) with individual pricing rules.
-*   **Hostel Wardens Terminal**: Check-in/check-out students, log security clearance statuses, and track utility histories.
-*   **Short-Term / Session Billing**: Support 3-month, 6-month, and academic session leases.
-
-### 3. Schools & Academic Boarding
-*   **Boarding House Ledgers**: Track school dormitory allocations integrated directly with terminal school fee invoices.
-*   **House Master Console**: Log house reports, track active room occupancies, and manage repair workflows for specific school blocks.
-
-### 4. Property Management & Real Estate Agencies
-*   **Multi-Owner Portfolios**: Support agents managing portfolios belonging to multiple external landlords.
-*   **Commission & Revenue Splits**: Auto-calculate agency commissions (e.g., 10% standard) and withholding tax (WHT) before routing payouts.
-*   **Property Inspector Ticketing**: Let inspection officers generate live inspection checklists and upload photographs of maintenance requirements.
+</p>
 
 ---
 
-## Core Production-Ready MVP Features
+# Overview
 
-To thrive in the local Nigerian environment, Hausify implements specialized operational blocks:
+CryptoCore is an enterprise-grade cryptocurrency platform designed for investment management, membership upgrades, secure wallet administration, and real-time cryptocurrency market monitoring.
 
-*   ** Localized Payment Gateways**: Ready-to-go API scaffolding for **Paystack** and **Flutterwave**. Supports:
-    *   *NUBAN Bank Transfers* (with automated account generation per invoice).
-    *   *USSD payments* (MTN, Airtel, Glo, 9mobile).
-    *   *Debit Card processing* (Verve, Mastercard, Visa).
-*   ** Automated SMS & WhatsApp Reminders**: Integrated queue listeners for **Termii**, **Twilio**, or **Multitexter** APIs. Dispatches automated rent reminders, maintenance ticket status alerts, and payment receipts straight to tenants' phones.
-*   ** Low-Bandwidth Optimization**: Lightweight HTML structures, pre-compiled static CSS assets, and minimal JS payload ensure pages load fast on standard mobile networks (2G/3G/4G).
-*   ** Local Regulatory Compliances**: Handles standard calculations for **Withholding Tax (WHT)** on rental income, agency commission percentages, and local tenancy association levies.
+The platform separates administrative operations from user activities while providing a scalable architecture capable of supporting future blockchain integrations, automated payment verification, and advanced investment services.
 
 ---
 
-## Technical Architecture & Stack
+# Platform Architecture
 
-```mermaid
-graph TD
-    User([Tenant / Landlord / School Admin]) -->|HTTPS / Mobile Networks| WebBrowser[Vite + Alpine.js Frontend]
-    WebBrowser -->|Vite Asset Pipeline| LaravelCore[Laravel 11 Core]
-    LaravelCore -->|Eloquent ORM| MySQL[(MySQL Database)]
-    LaravelCore -->|Queue Listener| Notifications[SMS / WhatsApp / Email Gateway]
-    LaravelCore -->|API Webhooks| Payments[Paystack / Flutterwave Gateway]
+```text
+                         ┌──────────────────────────┐
+                         │      Visitor/Home        │
+                         └─────────────┬────────────┘
+                                       │
+                     Register / Login / Email Verification
+                                       │
+               ┌───────────────────────┴───────────────────────┐
+               │                                               │
+               ▼                                               ▼
+      ┌───────────────────┐                         ┌────────────────────┐
+      │   User Dashboard  │                         │  Admin Dashboard   │
+      └─────────┬─────────┘                         └─────────┬──────────┘
+                │                                             │
+                │                                             │
+     ┌──────────┼──────────┐                      ┌────────────┼────────────┐
+     │          │          │                      │            │            │
+     ▼          ▼          ▼                      ▼            ▼            ▼
+ Deposits   Membership   Wallets             Users       Payments     Settings
+ Withdraw    Upgrades    Security          Management    Verification  Reports
+ Investments Portfolio Notifications       Support       Analytics     Logs
+                │                                             │
+                └──────────────────┬──────────────────────────┘
+                                   ▼
+                     Blockchain Payment Verification
+                                   │
+                                   ▼
+                        Ethereum / USDT / BTC / BNB
 ```
 
-*   **Backend**: PHP 8.2+ ─ Laravel 11 Framework (MVC, Eloquent, Queue Jobs).
-*   **Frontend**: Vite 7.0+ Pipeline ─ Tailwind CSS v3 (Dynamic Grid System) & Alpine.js (Reactive States).
-*   **Database**: MySQL 8.0+ / PostgreSQL 15+.
-*   **Caching & Queueing**: Redis / Database Queue driver for robust background SMS queues.
-# spe
+---
+
+# Core Modules
+
+```text
+Authentication
+      │
+      ├── Registration
+      ├── Secure Login
+      ├── Email Verification
+      ├── Password Recovery
+      └── Security PIN
+
+               │
+
+Membership System
+      │
+      ├── Bronze
+      ├── Silver
+      ├── Gold
+      ├── Platinum
+      └── Diamond
+
+               │
+
+Investment System
+      │
+      ├── Deposits
+      ├── Withdrawals
+      ├── Wallet Management
+      ├── Transaction History
+      └── Portfolio Overview
+
+               │
+
+Administration
+      │
+      ├── User Management
+      ├── Wallet Addresses
+      ├── Reports
+      ├── Announcements
+      ├── Support
+      └── System Configuration
+```
+
+---
+
+# Membership Progression
+
+```text
+             Bronze
+                │
+                ▼
+             Silver
+                │
+                ▼
+               Gold
+                │
+                ▼
+            Platinum
+                │
+                ▼
+             Diamond
+```
+
+Each membership unlocks additional investment opportunities and platform benefits.
+
+---
+
+# Deposit & Upgrade Workflow
+
+```text
+User
+ │
+ ▼
+Select Membership Upgrade
+ │
+ ▼
+View Ethereum Address
+ │
+ ▼
+Scan QR Code
+ │
+ ▼
+Send Cryptocurrency
+ │
+ ▼
+Submit Transaction Hash
+ │
+ ▼
+Administrator Verification
+ │
+ ▼
+Membership Activated
+```
+
+---
+
+# Security Workflow
+
+```text
+Account Creation
+        │
+        ▼
+Password Created
+        │
+        ▼
+Security PIN Created
+        │
+        ▼
+PIN Encrypted
+        │
+        ▼
+Stored Securely
+        │
+        ▼
+Forgot PIN?
+        │
+        ▼
+Administrator Reset
+        │
+        ▼
+User Creates New PIN
+```
+
+> **Security PINs are encrypted and cannot be viewed or recovered by the system.**
+
+---
+
+# Dashboard Ecosystem
+
+```text
+                    CryptoCore Platform
+
+        ┌──────────────────────────────────────────┐
+        │          Live Coin Market                │
+        └──────────────────────────────────────────┘
+
+        ┌───────────────┐   ┌──────────────────────┐
+        │ Portfolio     │   │ TradingView Charts   │
+        └───────────────┘   └──────────────────────┘
+
+        ┌───────────────┐   ┌──────────────────────┐
+        │ Transactions  │   │ Membership Status    │
+        └───────────────┘   └──────────────────────┘
+
+        ┌───────────────┐   ┌──────────────────────┐
+        │ Notifications │   │ Referral Earnings    │
+        └───────────────┘   └──────────────────────┘
+```
+
+---
+
+# Administrative Control Center
+
+```text
+                    Administrator
+
+                           │
+
+     ┌──────────┬──────────┼──────────┬──────────┐
+     │          │          │          │          │
+     ▼          ▼          ▼          ▼          ▼
+
+   Users    Deposits   Withdrawals  Reports   Settings
+     │          │          │          │          │
+     └──────────┴──────────┴──────────┴──────────┘
+                           │
+                           ▼
+                  Platform Monitoring
+```
+
+---
+
+# Security Highlights
+
+* Password hashing
+* Independent encrypted security PIN
+* CSRF protection
+* Email verification
+* Session management
+* Login activity logging
+* Administrator audit logs
+* Secure wallet administration
+* Role-based authorization
+* Rate limiting
+* Transaction verification
+* Device tracking
+
+---
+
+# Live Market Features
+
+* Real-time cryptocurrency prices
+* Interactive TradingView charts
+* Market trend visualization
+* Portfolio valuation
+* Live dashboard updates
+* Supported multi-currency wallets
+* Blockchain payment verification
+
+---
+
+# Design Principles
+
+```text
+        Security
+            │
+            ▼
+      Performance
+            │
+            ▼
+      Scalability
+            │
+            ▼
+      Reliability
+            │
+            ▼
+      User Experience
+```
+
+---
+
+# Platform Goals
+
+* Enterprise-level security
+* Modern administrative interface
+* Responsive user dashboard
+* Real-time cryptocurrency data
+* Secure investment management
+* Blockchain-ready architecture
+* Future-proof modular design
+* High scalability for growing communities
+
+---
+
+<p align="center">
+
+**CryptoCore**
+
+*Secure • Scalable • Modern • Blockchain Ready*
+
+</p>
