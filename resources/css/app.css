@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    /* Technical Grid of Connected Squares */
+    .bg-tech-squares-dark {
+        background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+    
+    .bg-tech-squares-light {
+        background-image: 
+            linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    /* Glowing borders */
+    .border-glow-emerald {
+        box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.12);
+    }
+    
+    .border-glow-emerald-hover:hover {
+        box-shadow: 0 0 25px -2px rgba(16, 185, 129, 0.25);
+        border-color: rgba(16, 185, 129, 0.4) !important;
+    }
+}
+
+/* Monospace tech typography */
+.font-mono-tech {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    letter-spacing: -0.02em;
+}
+
+/* Custom fade-up effects */
+.fade-up-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up-element.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Overlapping Dots Loader Styles (Global & Tiny States)
+   ========================================================================== */
+
+/* Global overlay container */
+.overlapping-dots-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(15, 23, 42, 0.85); /* premium dark slate backdrop */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.overlapping-dots-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Global Overlapping Dots Loader */
+.overlapping-dots-container {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlapping-dots-container .dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+.overlapping-dots-container .dot-1 {
+    background-color: #10b981; /* Emerald-500 */
+    color: rgba(16, 185, 129, 0.6);
+    animation: overlap-left 1.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlapping-dots-container .dot-2 {
+    background-color: #4f46e5; /* Indigo-600 */
+    color: rgba(79, 70, 229, 0.6);
+    animation: overlap-right 1.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes overlap-left {
+    0%, 100% {
+        transform: translateX(-22px) scale(0.8);
+        z-index: 10;
+    }
+    50% {
+        transform: translateX(22px) scale(1.2);
+        z-index: 20;
+    }
+}
+
+@keyframes overlap-right {
+    0%, 100% {
+        transform: translateX(22px) scale(1.2);
+        z-index: 20;
+    }
+    50% {
+        transform: translateX(-22px) scale(0.8);
+        z-index: 10;
+    }
+}
+
+/* Tiny Button-level Loader */
+.overlapping-dots-tiny-container {
+    position: relative;
+    width: 28px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlapping-dots-tiny-container .dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 4px currentColor);
+}
+
+.overlapping-dots-tiny-container .dot-1 {
+    background-color: #10b981;
+    color: rgba(16, 185, 129, 0.5);
+    animation: overlap-left-tiny 1.1s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlapping-dots-tiny-container .dot-2 {
+    background-color: #6366f1; /* Indigo-500 */
+    color: rgba(99, 102, 241, 0.5);
+    animation: overlap-right-tiny 1.1s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes overlap-left-tiny {
+    0%, 100% {
+        transform: translateX(-8px) scale(0.75);
+        z-index: 10;
+    }
+    50% {
+        transform: translateX(8px) scale(1.25);
+        z-index: 20;
+    }
+}
+
+@keyframes overlap-right-tiny {
+    0%, 100% {
+        transform: translateX(8px) scale(1.25);
+        z-index: 20;
+    }
+    50% {
+        transform: translateX(-8px) scale(0.75);
+        z-index: 10;
+    }
+}
+
+
