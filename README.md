@@ -1,4 +1,4 @@
-# 🚀 CryptoCore
+#  CryptoCore
 
 > **A secure, modern cryptocurrency investment and membership management platform built with Laravel and MySQL.**
 
